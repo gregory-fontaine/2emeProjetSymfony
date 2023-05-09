@@ -1,0 +1,62 @@
+#cours_date_fin{
+    display: flex;
+    justify-content: center;
+}
+
+#sidenavAccordion{
+height: 94vh;
+}
+
+#cours_date_debut{
+    display: flex;
+    justify-content: center;
+}
+
+#cours_heure_debut{
+    display: flex;
+    justify-content: center;
+}
+
+#cours_heure_fin{
+    display: flex;
+    justify-content: center;
+}
+
+#cours_date_hebdomadaire{
+    display: flex;
+}
+
+#cours_utilisateur{
+    display: flex;
+}
+
+.card1{
+    border: 2px rgb(9, 132, 248) solid;
+    border-radius: 1em;
+}
+
+#dataTable_filter{
+    display: flex;
+    justify-content: center;
+}
+
+.table{
+    border: 3px black solid;
+    border-right: 4px black solid;
+}
+
+.plbody{
+    padding-left: 18vh;
+}
+
+#dataTable_length{
+    display: flex;
+    justify-content: center;
+}
+
+/* margin pour espacer les radio dans le formulaire d'inscription d'élèves
+à mettre dans un autre css si jamais il gène */
+.required{
+    margin-right: 1rem;
+    margin-left: 2px;
+}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center text-center row px-5  mx-1">
+    <h1 class="text-center my-5">Cours</h1>
+<div class=" d-flex justify-content-center row">
+    <table class="table table-dark table-striped" >
+        <tbody>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Id</div></th>
+                <td class="w-50" style="padding-left: 150px;">{{ cour.id }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Nombre maximum d'élèves dans le cours</th>
+                <td class="w-50" style="padding-left: 150px;">{{ cour.maxEleves }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Description</th>
+                <td class="w-50" style="padding-left: 150px;">{{ cour.description }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Libelle</th>
+                <td class="w-50" style="padding-left: 150px;">{{ cour.libelle }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Horaires</th>
+                <td class="w-50" style="padding-left: 150px;"> de {{ cour.heureDebut ? cour.heureDebut|date('H:i') : '' }} a {{ cour.heureFin ? cour.heureFin|date('H:i') : '' }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Date hebdomadaire</th>
+                <td class="w-50" style="padding-left: 150px;">{{ cour.dateHebdomadaire }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Période</th>
+                <td class="w-50" style="padding-left: 150px;">du {{ cour.dateDebut ? cour.dateDebut|date('Y-m-d') : '' }} au {{ cour.dateFin ? cour.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Nom du professeur</th>
+                <th class="w-50" style="padding-left: 150px;"> {{ cour.utilisateurNom }} </th> 
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+        <a class="btn btn-primary mt-2" href="{{ path('app_cours_edit', {'id': cour.id}) }}">éditer</a>
+    </div>
+<div class="w-25 d-flex justify-content-center order-2">
+    <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_index') }}">Retour à la liste</a>
+    </div>
+
+    {# boutton qui s est glissé à cause d'un merge? a laisser pour le moment pour créer des conflits ;) #}
+    {# <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_edit', {'id': cour.id}) }}">Editer</a> #}
+    <div class="w-25 d-flex justify-content-center order-2">
+    {{ include('cours/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
+    
+{% endblock %}

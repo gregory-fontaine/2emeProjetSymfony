@@ -1,0 +1,16 @@
+<h1>Bonjour !</h1>
+
+<p>Pour réinitialiser votre mot de passe , cliquez sur le lien</p>
+
+<a href="http://127.0.0.1:8000/reset-password/reset/{{resetToken.token}}">Cliquez ici</a>
+
+
+{# <a href="{{ path('app_reset_password_reset', {'token': resetToken.token}) }}">Cliquez ici</a> #}
+
+{# <a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ '/reset-password/reset/' ~ resetToken.token }}"></a> #}
+
+<p>Ce lien expire dans 1 heure .</p>
+
+<p>Merci</p>
+
+{# <a href="https://127.0.0.1:8000/reset-password/reset/{{token: resetToken.token}}"></a> #}

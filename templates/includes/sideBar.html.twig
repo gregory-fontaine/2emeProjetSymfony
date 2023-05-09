@@ -1,0 +1,72 @@
+<link href="
+            {{ asset('assets/css/sidebar.css') }}
+            " rel="stylesheet">
+            <div>
+<aside class="sidebar">
+  <div id="leftside-navigation" class="nano mt-perso">
+    <ul class="nano-content">
+      <li>
+        <a href={{ path('app_profile_show')}} ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+        <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+      </svg><span class="espace">Profil</span></a>
+      </li>
+      <li class="sub-menu">
+        <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16">
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+      </svg><span class="espace">Cours</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+
+        {% if is_granted('ROLE_ADMIN') == false %}
+          <li><a href={{ path('app_cours_index')}}>Mes cours</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+        <li><a href={{ path('app_cours_index')}}>Liste des cours</a></li>
+        {% endif %}
+          
+          <li><a href={{ path('app_cours_new')}}>Créer un cours</a></li>
+
+          <li><a href="http://127.0.0.1:8000/calendar/">Calendrier</a></li>
+
+          <li><a href={{ path('app_inscrit_index')}}>Inscire un élève</a></li>
+          <li><a href={{ path('app_presence_index')}}>Voir les présences</a>          
+          </li>
+        </ul>
+      </li>
+
+      {% if is_granted('ROLE_ADMIN') %}
+      <li class="sub-menu">
+        <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+        <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+      </svg><span class="espace">Utilisateurs</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+          <li><a href={{ path('app_utilisateur_index')}}>Liste des utilisateurs</a>
+          </li>
+
+          <li><a href={{ path('app_register')}}>Créer un utilisateur</a>
+          </li>
+        </ul>
+      </li>
+    {% endif %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+      <li class="sub-menu">
+        <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+      </svg><span class="espace">Elèves</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+          <li><a href={{ path('app_eleve_index')}} >Liste des élèves</a>
+          </li>
+          <li><a href={{ path('app_eleve_new')}}>Ajouter un élève</a>
+          </li>
+        </ul>
+      </li>
+    {% endif %} 
+
+    </ul>
+  </div>
+</aside>
+<script src="{{ asset('assets/js/sidebar.js') }}"></script>
+</div>

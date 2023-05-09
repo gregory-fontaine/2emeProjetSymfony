@@ -1,0 +1,18 @@
+<nav id="sidebar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Prends un cours</a>
+    
+    
+      <form class="d-flex">
+        {% if app.user %}
+          <div class="mt-2 mx-2">
+              Vous êtes connectés en tant que: 
+              {{ app.user.userIdentifier }}              
+          </div>
+        {% endif %}
+        <a href="{{ path('app_login')}}" class="btn btn-dark mx-1 my-2 my-sm-0" >Connection</a>
+        <a href="{{ path('app_logout')}}" class="btn btn-dark  my-2 my-sm-0" >Déconnection</a>
+      </form>
+    </div>
+  </div>
+</nav>

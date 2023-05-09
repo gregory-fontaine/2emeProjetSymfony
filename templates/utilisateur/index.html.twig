@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Utilisateur index
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex justify-content-center text-center row px-5 mx-1">
+		<h1 class="mt-3">Liste des utilisateurs</h1>
+	</div>
+
+	<div class="p-5">
+		<table class="table table-striped table-dark" id="dataTable">
+			<thead>
+				<tr>
+					<th class="bg-primary">Id</th>
+					<th class="bg-primary">Email</th>
+					<th class="bg-primary">Roles</th>
+					<th class="bg-primary">Nom_utilisateur</th>
+					<th class="bg-primary">Prenom_utilisateur</th>
+					<th class="bg-primary">Telephone_utilisateur</th>
+					<th class="bg-primary">Sexe_utilisateur</th>
+					<th class="bg-primary">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for utilisateur in utilisateurs %}
+					<tr>
+						<td>{{ utilisateur.id }}</td>
+						<td>{{ utilisateur.email }}</td>
+						<td>{{ utilisateur.roles ? utilisateur.roles|json_encode:'' }}</td>
+						<td>{{ utilisateur.nomUtilisateur }}</td>
+						<td>{{ utilisateur.prenomUtilisateur }}</td>
+						<td>{{ utilisateur.telephoneUtilisateur }}</td>
+						<td>{{ utilisateur.sexeUtilisateur }}</td>
+						<td>
+							<a class="btn btn-sm btn-outline-primary mx-1" href="{{ path('app_utilisateur_show', { id: utilisateur.id }) }}">Infos</a>
+							<a class="btn btn-sm btn-primary mx-1" href="{{ path('app_utilisateur_edit_admin', { id: utilisateur.id }) }}">Editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="10">pas d'utilisateurs enregistrés</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-around">
+			<div class="w-25 d-flex justify-content-center order-3 mt-3">
+				<a class="btn btn-primary mt-2" href="{{ path('app_register') }}">Créer</a>
+			</div>
+			<div class="w-25 order-2"></div>
+			<div class="w-25 order-1"></div>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Modifier un élève
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Modifier un élève
+    </h1>
+
+    {{ include('eleve/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_eleve_index') }}">
+        <button class="btn btn-primary">
+            Retour
+        </button>
+    </a>
+
+    {{ include('eleve/_delete_form.html.twig') }}
+    {# {{ include('eleve/_delete_form.html.twig', {'button_label': 'Supprimer'}) }} #}
+{% endblock %}

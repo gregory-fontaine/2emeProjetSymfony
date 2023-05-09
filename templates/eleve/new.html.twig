@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ajouter un élève
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center text-center row px-5  mx-1"> 
+  <h1 class="text-center m-5">Créer un nouvel élève</h1>
+
+    
+  {{ form_start(neweleveform) }}
+
+  <div class="d-flex justify-content-around m-5 mt-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.nom_eleve) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.prenom_eleve) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.email_eleve) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.telephone_eleve) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.niveau_etude) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.metier_exerce) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(neweleveform.sexe_eleve) }}</div>
+  </div>
+
+  {# ligne avec boutons retour valider supprimer #}
+  <div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+      <button type="submit" class="btn btn-primary mt-2">Ajouter un élève</button>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-1">
+      <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_index') }}">Retour à la liste</a>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-2"></div>
+  </div>
+  {{ form_end(neweleveform) }}
+{% endblock %}

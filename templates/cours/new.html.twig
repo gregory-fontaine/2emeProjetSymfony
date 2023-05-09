@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Nouveau Cours
+{% endblock %}
+
+{% block body %} <div class="d-flex justify-content-center text-center row px-5  mx-1"> 
+  <h1 class="text-center m-5">Créer un nouveau cours</h1>
+  {# formulaire de base #}
+  {# {{ include('cours/_form.html.twig') }} #}
+
+  {# formulaire personalisé #}
+  {{ form_start(coursForm) }}
+
+  <div class="d-flex justify-content-around m-5 mt-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.max_eleves) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.description) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.libelle) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_debut) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.heure_debut) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_hebdomadaire) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_fin) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.heure_fin) }}</div>   
+    {% if is_granted('ROLE_ADMIN') %}
+      <div class="w-25 card1 bg-custom-1 m-2 p-2">{{ form_row(coursForm.utilisateur) }}</div>
+    {% endif %}
+    
+     
+          
+    
+      
+    
+    
+  </div>
+
+  {# ligne avec boutons retour valider supprimer #}
+  <div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+      <button type="submit" class="btn btn-primary mt-2">Créer cours</button>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-1">
+      <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_index') }}">Retour à la liste</a>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-2"></div>
+  </div>
+  {{ form_end(coursForm) }}
+{% endblock %}
