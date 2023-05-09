@@ -1,0 +1,13 @@
+dans ce TP on devais creer une application de gestion des absences pour des cours donnés par une association.
+la secretaire a le role admin et peut tout gerer.
+les professeurs ont un role user et peuvent gerer seulement leurs propres cours.
+les etudiants s'inscrivent via un formulaire papier et c'est la secretaire qui les rentre en BDD .
+il fallait mettre en place un systeme de double authentification.
+
+un professeur ou la secretaire crée le cours sur une periode , par exemple du 1er septembre au 30 juin , choisi un jour de la semaine et valide, ce qui crée des seances (4seances pour un cours d'un mois par exemple) afin de pouvoir modifier ou supprimer une seule seance si le professeur a un empechement.
+le jour du cours, le professeur vas sur la seance en question et genere un QRCode. les élèves le scan avec leur telephones et arrivent sur une page ou ils rentrent leur nom et si ils sont presents ou non(un lien doit etre envoyé sur telegram egalement pour les absents). on a 3 choix : present , absent et absence justifiée(absent par defaut dans la bdd)
+
+ce tp a été réalisé en groupe avec 2 autres personnes , il n'est pas encore fini il nous reste quelques contraintes a mettre en place pour la création des cours, finir le QRcode (75% d'avancement) , et harmoniser un peu le css. 
+
+ j'ai supprimé la ligne mailer_dsn dans le fichhier .env afin d'eviter tout problemes comme le fichier est en public
+ 
